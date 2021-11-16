@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+
+</h:head>
+
+<h:body >
+
+
+<div class="card">
+    <h:form>
+        <p:growl id="messages"/>
+
+        <p:menubar style="background-color: #c6cef8; text-align:center ;">
+
+<!--            <f:facet name="Title">-->
+<!--                <h1>MyHotelReservation</h1>-->
+<!--            </f:facet>-->
+
+<!--            <f:facet name="options" >-->
+<!--                <h1>MyHotel</h1>-->
+<!--            </f:facet>-->
+<!--            <p:contextMenu/>-->
+            <p:divider layout="vertical"/>
+
+            <p:menuitem value="Principal" url="#"/>
+
+            <p:divider layout="vertical"/>
+
+            <p:menuitem value="Destino" url="#destino"/>
+
+            <p:divider layout="vertical"/>
+
+            <p:menuitem value="Nosotros" url="#nosotros"/>
+
+            <p:divider layout="vertical"/>
+
+            <p:menuitem value="Contacto" url="#contacto"/>
+
+            <p:divider layout="vertical"/>
+
+
+            <f:facet name="options">
+                <p:commandButton value="Ingresar" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" action="usuarios"/>
+            </f:facet>
+
+        </p:menubar>
+
+    </h:form>
+</div>
+
+    <h1>MyHotelReservation</h1>
+<!--    <div class="card">-->
+<!--        <h5>Static Image</h5>-->
+<!--         <img src="imagenes/principal/img4.jpg" alt="travelers" width="1200" height="600"/>-->
+<!--    </div>-->
+
+<!--    <h2>a</h2>-->
+    <br/>
+    <center>
+        <div class="card" style="background-color: rgba(0,0,0,0.84)" id="principal">
+    <!--        <h5>Shuffle</h5>-->
+
+            <p:imageSwitch effect="zoom">
+                <ui:repeat value="#{principalBean.images}" var="image">
+                    <p:graphicImage value="/imagenes/principal/#{image}" style="width: 700px;height: 500px"/>
+                </ui:repeat>
+            </p:imageSwitch>
+
+        </div>
+
+    </center>
+
+<!--    <h5>MultiLine</h5>-->
+<!--    <div class="p-grid">-->
+<!--        <div class="p-col-6">-->
+<!--            <div class="box">6</div>-->
+<!--        </div>-->
+<!--        <div class="p-col-6">-->
+<!--            <div class="box">6</div>-->
+<!--        </div>-->
+<!--        <div class="p-col-6">-->
+<!--            <div class="box">6</div>-->
+<!--        </div>-->
+<!--        <div class="p-col-6">-->
+<!--            <div class="box">6</div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <div class="card" id="destino" >
+
+        <p style="font-size: 40px;text-align: center">Te ofrecemos las mejores habitaciones del área</p>
+
+        <p:divider />
+
+
+    </div>
+
+    <div class="card" id="nosotros"  >
+
+        <p:splitter style="height: 300px; background-color: rgba(0,0,0,0.84);" styleClass="p-mb-5" >
+            <p:splitterPanel style="font-size: 35px; text-align: center; color: white; align-items: center;display:flex;justify-content: center;" styleClass="p-d-flex p-ai-center p-jc-center">
+                Somos una empresa de viajes que quiere ayudarte a crecer profeciolmente. Estamos en la industria del viaje y del turismo por casi 15 años.
+            </p:splitterPanel>
+            <p:splitterPanel styleClass="p-d-flex p-ai-center p-jc-center">
+                <img src="imagenes/principal/img2.jpg" alt="travelers" style="width: 500px; height: 270px;display: block;margin:auto;"/>
+            </p:splitterPanel>
+        </p:splitter>
+    </div>
+    <br/>
+    <div id="contacto" >
+<!--        style= "background-color: #c6cef8;"-->
+    <p:panel header="contacto"  >
+        <p class="p-m-0" style="font-size: 30px;" >
+            Para contactar con un representate envia un correo a myhotelreservations@gmail.com
+        </p>
+    </p:panel>
+    </div>
+
+</h:body>
+
+
+</html>

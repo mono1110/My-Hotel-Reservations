@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+</h:head>
+
+<h:body>
+
+   <div class="card">
+
+      <p:splitter style="height: 300px" styleClass="p-mb-5">
+         <p:splitterPanel styleClass="p-d-flex p-ai-center p-jc-center">
+            <center>
+            <div class="p-col-12 p-md-4">
+               <div class="card">
+                  <h5>Administrador</h5>
+
+                  <p:avatar label="A" styleClass="p-mr-2" size="large" style="background-color:#2196F3; color:#fff" shape="circle"  />
+                  <br/>
+                  <h:form>
+                     <p:commandButton value="Ingresar" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" action="loginAdmin"/>
+                  </h:form>
+               </div>
+            </div>
+            </center>
+         </p:splitterPanel>
+         <p:splitterPanel styleClass="p-d-flex p-ai-center p-jc-center">
+            <center>
+            <div class="p-col-12 p-md-4">
+               <div class="card">
+                  <h5>Usuario Externo</h5>
+                  <h5 style="font-weight: bold">Realizar Reservas</h5>
+                  <p:avatar label="E" styleClass="p-mr-2" size="large" style="background-color:#8d21f3; color:#fff" shape="circle"  />
+                  <br/>
+                  <h:form>
+                     <p:commandButton value="Ingresar" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" action="loginAdmin"/>
+                  </h:form>
+               </div>
+            </div>
+            </center>
+         </p:splitterPanel>
+      </p:splitter>
+   </div>
+
+</h:body>
+
+
+</html>
