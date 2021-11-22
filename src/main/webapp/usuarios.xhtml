@@ -10,7 +10,46 @@
 <h:head>
 </h:head>
 
-<h:body>
+<h:body >
+
+   <div class="card">
+      <h:form>
+         <p:growl id="messages"/>
+
+         <p:menubar style="background-color: #c6cef8; text-align:center ;">
+
+            <!--            <f:facet name="Title">-->
+            <!--                <h1>MyHotelReservation</h1>-->
+            <!--            </f:facet>-->
+
+            <!--            <f:facet name="options" >-->
+            <!--                <h1>MyHotel</h1>-->
+            <!--            </f:facet>-->
+            <!--            <p:contextMenu/>-->
+            <p:divider layout="vertical"/>
+
+            <p:menuitem value="Principal" url="principal.xhtml"/>
+
+            <p:divider layout="vertical"/>
+
+            <p:menuitem value="Destino" url="principal.xhtml"/>
+
+            <p:divider layout="vertical"/>
+
+            <p:menuitem value="Nosotros" url="principal.xhtml"/>
+
+            <p:divider layout="vertical"/>
+
+            <p:menuitem value="Contacto" url="principal.xhtml"/>
+
+            <p:divider layout="vertical"/>
+
+
+         </p:menubar>
+
+      </h:form>
+   </div>
+
 
    <div class="card">
 
@@ -23,9 +62,15 @@
 
                   <p:avatar label="A" styleClass="p-mr-2" size="large" style="background-color:#2196F3; color:#fff" shape="circle"  />
                   <br/>
+                  <br/>
                   <h:form>
-                     <p:commandButton value="Ingresar" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" action="loginAdmin"/>
+                     <p:commandButton value="ingreso administrador" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" action="loginAdmin"/>
                   </h:form>
+                  <br/>
+                  <br/>
+                  <br/>
+
+                  <img src="imagenes/admin.jpg" alt="admn" style="width: 500px; height: 270px;display: block;margin:auto;"/>
                </div>
             </div>
             </center>
@@ -35,12 +80,15 @@
             <div class="p-col-12 p-md-4">
                <div class="card">
                   <h5>Usuario Externo</h5>
-                  <h5 style="font-weight: bold">Realizar Reservas</h5>
+                  <h2 style="font-weight: bold">Realizar Reservas</h2>
                   <p:avatar label="E" styleClass="p-mr-2" size="large" style="background-color:#8d21f3; color:#fff" shape="circle"  />
                   <br/>
+                  <br/>
                   <h:form>
-                     <p:commandButton value="Ingresar" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" action="loginAdmin"/>
+                     <p:commandButton value="REALIZAR RESERVA" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" action="loginUser"/>
                   </h:form>
+                  <br/>
+                  <img src="imagenes/usuario.jpg" alt="usr" style="width: 500px; height: 270px;display: block;margin:auto;"/>
                </div>
             </div>
             </center>

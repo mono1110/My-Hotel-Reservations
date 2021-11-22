@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,17 +37,19 @@ public class LoginAdminBean implements Serializable {
     }
 
     public String validarUsuarioAdm(){
-        System.out.println("- - - - - - CLICK "+nombreUsuario+contrasenia);
         OperacionesUsuarioPostgres op = new OperacionesUsuarioPostgres();
         String pk=nombreUsuario;
         Usuario u = op.consulta(pk);
 
-        System.out.println(u);
-        if (u != null)
-            return "principal";
-        else
-            return "loginp";
+//        System.out.println(u);
+        if (u != null && u.getContrasenia().equals(contrasenia) && u.isEsAdmin()) {
+            return "adminTransicion";
+        }else {
 
+            FacesContext.getCurrentInstance().addMessage(null,
+                    new FacesMessage("Ocurrió un error, verifique los datos" ));
 
+            return "";
+        }
     }
 }

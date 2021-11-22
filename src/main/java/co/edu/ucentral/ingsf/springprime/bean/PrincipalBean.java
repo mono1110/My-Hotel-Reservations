@@ -61,7 +61,7 @@ public class PrincipalBean implements Serializable {
     @PostConstruct
     public void init() {
         images = new ArrayList<String>();
-        for (int i = 1; i <= 4; i++) {
+        for (int i = 1; i <= 5; i++) {
             images.add("img" + i + ".jpg");
         }
     }

@@ -1,13 +1,19 @@
 package co.edu.ucentral.ingsf.springprime;
 
 import co.edu.ucentral.ingsf.springprime.bd.ManejadorConexion;
+import co.edu.ucentral.ingsf.springprime.dto.Habitacion;
+import co.edu.ucentral.ingsf.springprime.dto.Hotel;
+import co.edu.ucentral.ingsf.springprime.dto.Reserva;
 import co.edu.ucentral.ingsf.springprime.dto.Usuario;
-import co.edu.ucentral.ingsf.springprime.operaciones.OperacionesUsuarioPostgres;
-import co.edu.ucentral.ingsf.springprime.operaciones.OperacionesUsuarios;
+import co.edu.ucentral.ingsf.springprime.operaciones.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.sql.Array;
 import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -99,6 +105,73 @@ class SpringprimeApplicationTests {
 //        assertNotNull(u);
         System.out.println(u);
 
+    }
+
+    @DisplayName("prueba Consulta All hoteles postgress ")
+    @Test
+    public void consultaAllHotelesPostgres(){
+        OperacionesHotelesPostgres oper = new OperacionesHotelesPostgres();
+        List<Hotel> v = oper.consultar();
+        for (Hotel dato:v) {
+            System.out.println(dato);
+
+        }
+
+        assertTrue(v.size()>0);
+
+    }
+
+    @DisplayName("prueba Consulta All habitaciones postgress ")
+    @Test
+    public void consultaAllHabitacionesPostgres(){
+        OperacionesHabitacionesPostgres oper = new OperacionesHabitacionesPostgres();
+        List<Habitacion> v = oper.consultar();
+        for (Habitacion dato:v) {
+            System.out.println(dato);
+
+        }
+
+        assertTrue(v.size()>0);
+
+    }
+
+    @DisplayName("prueba get lista")
+    @Test
+    public void pruebaGetLista(){
+        List<String> listaHotelesCmb = new ArrayList<String>();
+
+        OperacionesHotelesPostgres oper = new OperacionesHotelesPostgres();
+
+        List<Hotel> listaHoteles= oper.consultar();
+
+//        Hotel h = (Hotel) listaHoteles.get(0);
+
+        for (Hotel ho: listaHoteles) {
+            listaHotelesCmb.add(ho.getId()+". "+ho.getNombre());
+        }
+
+//        System.out.println(h.getId()+" ."+h.getNombre());
+        System.out.println(listaHotelesCmb);
+
+    }
+
+
+    @DisplayName("prueba crear Reserva Postgress ")
+    @Test
+    public void testPruebaCrearReservaPostgress(){
+        OperacionesReservasPostgres op = new OperacionesReservasPostgres();
+        Reserva r = new Reserva();
+        r.setDe_la_fecha(new Date());
+        r.setA_la_fecha(new Date());
+        r.setIdHotel("1. Pueb");
+        r.setCodigoHabitacion("h4");
+        r.setNombre("Pedro");
+        r.setCedula(4422);
+
+
+        boolean rta= op.crear(r);
+        System.out.println(r);
+        assertTrue(rta);
     }
 
 }
