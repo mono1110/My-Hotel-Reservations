@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+</h:head>
+
+<h:body >
+
+    <div class="card">
+        <h:form>
+            <p:growl id="messages"/>
+
+            <p:menubar style="background-color: #c6cef8; text-align:center ;">
+
+                <!--            <f:facet name="Title">-->
+                <!--                <h1>MyHotelReservation</h1>-->
+                <!--            </f:facet>-->
+
+                <!--            <f:facet name="options" >-->
+                <!--                <h1>MyHotel</h1>-->
+                <!--            </f:facet>-->
+                <!--            <p:contextMenu/>-->
+                <!--                <p:divider layout="vertical"/>-->
+
+                <p:menuitem value="SALIR" url="principal.xhtml" style="background-color: rgba(255,0,0,0.56)"/>
+
+                <!--                <p:divider layout="vertical"/>-->
+
+                <p:menuitem value="Reservar Habitación" url="realizarReserva.xhtml"/>
+
+                <p:divider layout="vertical"/>
+
+                <p:menuitem value="Ver Habitaciones" url="verHabitaciones.xhtml"/>
+
+                <p:divider layout="vertical"/>
+
+                <p:menuitem value="Mis Reservas" url="listarReservas.xhtml"/>
+
+                <p:divider layout="vertical"/>
+
+
+            </p:menubar>
+
+        </h:form>
+    </div>
+
+
+    <!--    <h1 style="text-align: center; font-size: 100px">Reservar Habitación</h1>-->
+
+    <!--    <img src="imagenes/habitaciones/h1.jpg" alt="usr" style="width: 500px; height: 270px;display: block;margin:auto;"/>-->
+    <!--        <h:form>-->
+        <h:form>
+    <center>
+        <p:messages id="msgs"/>
+        <br/>
+        <h5>De la Fecha:</h5>
+        <p:datePicker id="inline" value="#{realizarReservaBean.de_la_fecha}" />
+        <h5>A la Fecha:</h5>
+        <p:datePicker id="inline2" value="#{realizarReservaBean.a_la_fecha}" />
+        <!--        <h5>A la fecha:</h5>-->
+        <!--        <p:datePicker id="A la Fecha" value="20-11-2021" inline="true"/>-->
+
+        <br/>
+        <br/>
+        <div class="p-field p-col-12 p-md-4">
+            <p:outputLabel for="@next" value="Hotel:   " style="font-size: 20px"/>
+            <p:selectOneMenu id="option" value="#{realizarReservaBean.hotel}">
+                <f:selectItems value="#{realizarReservaBean.listaHotelesCmb}"/>
+
+
+
+                <!--                <f:facet name="footer">-->
+                <!--                    <p:divider styleClass="p-mt-0" />-->
+                <!--                    <h:outputText value="3 options" style="font-weight:bold;"/>-->
+                <!--                </f:facet>-->
+            </p:selectOneMenu>
+        </div>
+        <br/>
+        <br/>
+
+        <div class="p-field p-col-12 p-md-4">
+            <p:outputLabel for="@next" value="Habitacion:   " style="font-size: 20px"/>
+            <p:selectOneMenu id="habitacion" value="#{realizarReservaBean.habitacioncmb}">
+                <f:selectItems value="#{realizarReservaBean.listaHabitacionesCmb}"/>
+
+
+
+                <!--                <f:facet name="footer">-->
+                <!--                    <p:divider styleClass="p-mt-0" />-->
+                <!--                    <h:outputText value="3 options" style="font-weight:bold;"/>-->
+                <!--                </f:facet>-->
+            </p:selectOneMenu>
+        </div>
+
+    </center>
+
+    <center>
+        <div>
+            <!--        <p:avatar label="E" styleClass="p-mr-2" size="xlarge" shape="circle" />-->
+
+
+
+            <h5>Nombre</h5>
+            <p:inputText value="#{realizarReservaBean.nombre}" />
+            <br/>
+            <br/>
+            <h5>Cedula</h5>
+            <p:inputText value="#{realizarReservaBean.cedula}" />
+            <br/>
+            <br/>
+            <!--            <h:form>-->
+
+            <!--            <p:commandButton value="Reservar" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" action=""/>-->
+
+            <!--            <a href="https://example.com">Website</a>-->
+
+            <!--            <p:messages id="msgs"/>-->
+
+
+                <p:commandButton value="Reservar" icon="pi pi-fw pi-chevron-circle-right" styleClass="ui-button-info" update="@form" action="#{realizarReservaBean.guardarDatos()}"/>
+
+
+        </div>
+    </center>
+    <!--        </h:form>-->
+        </h:form>
+
+
+
+
+</h:body>
+
+
+</html>

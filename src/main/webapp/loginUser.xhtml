@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+</h:head>
+
+<h:body>
+
+    <div class="card">
+        <h:form>
+
+
+
+            <p:menubar style="background-color: #c6cef8; text-align:center ;">
+
+                <!--            <f:facet name="Title">-->
+                <!--                <h1>MyHotelReservation</h1>-->
+                <!--            </f:facet>-->
+
+                <!--            <f:facet name="options" >-->
+                <!--                <h1>MyHotel</h1>-->
+                <!--            </f:facet>-->
+                <!--            <p:contextMenu/>-->
+                <p:divider layout="vertical"/>
+
+                <p:menuitem value="Principal" url="principal.xhtml"/>
+
+                <p:divider layout="vertical"/>
+
+                <p:menuitem value="Destino" url="principal.xhtml"/>
+
+                <p:divider layout="vertical"/>
+
+                <p:menuitem value="Nosotros" url="principal.xhtml"/>
+
+                <p:divider layout="vertical"/>
+
+                <p:menuitem value="Contacto" url="principal.xhtml"/>
+
+                <p:divider layout="vertical"/>
+
+
+            </p:menubar>
+
+        </h:form>
+    </div>
+    <br/>
+    <br/>
+    <center>
+        <div>
+            <p:avatar label="E" styleClass="p-mr-2" size="xlarge" shape="circle" />
+            <h:form>
+
+
+
+                <p:inputText value="#{loginUserBean.nombreUsuario}" />
+                <br/>
+                <br/>
+                <p:password id="toggle" value="#{loginUserBean.contrasenia}" toggleMask="true" redisplay="true"/>
+                <br/>
+                <br/>
+                <p:commandButton value="Ingresar" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" update="@form" action="#{loginUserBean.validarUsuarioExt()}"/>
+                <br/>
+                <br/>
+                <a href="registrarUsuario.xhtml">Registrarse</a>
+                <br/>
+                <br/>
+                <a href="https://example.com">Olvidó su contraseña?</a>
+
+<!--                <p:messages id="messages" showDetail="true">-->
+<!--                    <p:autoUpdate/>-->
+<!--                </p:messages>-->
+                <p:messages id="msgs"/>
+            </h:form>
+        </div>
+    </center>
+
+
+</h:body>
+
+
+</html>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+</h:head>
+
+<h:body >
+
+    <div class="card">
+        <h:form>
+            <p:growl id="messages"/>
+
+            <p:menubar style="background-color: #c6cef8; text-align:center ;">
+
+                <!--            <f:facet name="Title">-->
+                <!--                <h1>MyHotelReservation</h1>-->
+                <!--            </f:facet>-->
+
+                <!--            <f:facet name="options" >-->
+                <!--                <h1>MyHotel</h1>-->
+                <!--            </f:facet>-->
+                <!--            <p:contextMenu/>-->
+                <!--                <p:divider layout="vertical"/>-->
+
+                <p:menuitem value="SALIR" url="principal.xhtml" style="background-color: rgba(255,0,0,0.56)"/>
+
+                <!--                <p:divider layout="vertical"/>-->
+
+                <p:menuitem value="Reservar Habitación" url="realizarReserva.xhtml"/>
+
+                <p:divider layout="vertical"/>
+
+                <p:menuitem value="Ver Habitaciones" url="verHabitaciones.xhtml"/>
+
+                <p:divider layout="vertical"/>
+
+                <p:menuitem value="Mis Reservas" url="listarReservas.xhtml"/>
+
+                <p:divider layout="vertical"/>
+
+
+            </p:menubar>
+
+        </h:form>
+    </div>
+
+    <center>
+    <ui:repeat value="#{realizarReservaBean.pruebaHa}" var="item">
+        <div class="card">
+            <!--                <h5 style="margin-top:0">Habitación</h5>-->
+            <p:panelGrid columns="2">
+                <f:facet name="header">
+                    <p:graphicImage value="#{item.imagen}" style="width: 200px; height: 200px"/>
+                </f:facet>
+
+
+                <h:outputText value="Codigo:"/>
+                <h:outputText value="#{item.codigo}"/>
+
+                <h:outputText value="Capacidad Máxima:"/>
+                <h:outputText value="#{item.capacidadMaxima}"/>
+
+                <h:outputText value="Precio:"/>
+                <h:outputText value="#{item.precio}"/>
+
+                <p:selectOneRadio id="console" value="" unselectable="true">
+                    <f:selectItem itemLabel="#{item.codigo}" itemValue="Option1"/>
+                </p:selectOneRadio>
+
+
+            </p:panelGrid>
+            <br/>
+
+        </div>
+
+        <!--        <h:commandButton value="#{item}" />-->
+
+    </ui:repeat>
+
+    </center>
+</h:body>
+
+
+</html>
