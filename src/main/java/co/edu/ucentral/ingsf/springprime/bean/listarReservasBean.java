@@ -31,6 +31,9 @@ public class listarReservasBean  implements Serializable {
 
     @PostConstruct
     public void init() {
+        OperacionesReservasPostgres opR = new OperacionesReservasPostgres();
+
+        reservas =opR.consultar();
 
     }
 

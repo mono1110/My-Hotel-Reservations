@@ -55,7 +55,9 @@
 
     <h:form>
         <div class="card">
-            <p:dataTable var="reservaitem" value="#{listarReservasBean.reservas}">
+            <p:commandButton styleClass="ui-button-info" id="refrescartabla" value="recargar" action="#{listarReservasBean.init()}" update="reservasTable"/>
+
+            <p:dataTable id="reservasTable" var="reservaitem" value="#{listarReservasBean.reservas}">
                 <p:column headerText="Codigo">
                     <h:outputText value="#{reservaitem.id}" />
                 </p:column>
